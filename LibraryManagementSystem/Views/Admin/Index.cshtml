@@ -1,0 +1,70 @@
+﻿@model LibraryManagementSystem.ENTITIES.Entities.User
+
+
+@{ Layout = "_LayoutManager"; }
+
+
+
+<div class="content-wrapper">
+
+    <div class="row flex-column align-items-center">
+        <div class="card mb-5" style="max-width: 900px; background-color: #e4d8da">
+            <div class="row g-0 align-items-center">
+                <div class="col-md-4 mx-auto">
+                    <div class="">
+                        <div class="card-img">
+                            <img class="rounded mx-auto d-block" style="width:80%;height:80%; " src="@Html.DisplayFor(modelItem =>Model.PhotoName)" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b>Ad Soyad: </b>@Html.DisplayFor(modelItem => Model.FirstName)
+                            @Html.DisplayFor(modelItem => Model.LastName)
+                            
+                        </p>
+                        @*<p class="card-text">
+                                <b>Departman: </b>@Html.DisplayFor(modelItem => Model.DepartmansEnum)
+                            </p>*@
+                        <p class="card-text">
+                            <b>Adres: </b>@Html.DisplayFor(modelItem => Model.Address)
+                        </p>
+                        <p class="card-text">
+                            <b>Mail: </b>@Html.DisplayFor(modelItem => Model.Mail)
+                        </p>
+                        <p class="card-text">
+                            <b>Telefon Numarası: </b>@Html.DisplayFor(modelItem => Model.PersonelPhoneNumber)
+                        </p>
+                    </div>
+                </div>
+                @*<div class="col-md-3">
+                        <div class="">
+                            <a class="btn" style="display: block; color: white; background-color: #478ba2; border-radius: 40px; width: 200px;" asp-controller="Employee" asp-action="UpdatePersonel" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()"> GÜNCELLE</a>
+                            <br />
+                            <a class="btn" style="display: block; color: white; background-color: #478ba2; border-radius: 40px; width: 200px;" asp-controller="Employee" asp-action="Details" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()"> DETAY GÖSTER</a>
+                        </div>
+                    </div>*@
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+<!-- content-wrapper ends -->
+<!-- partial:partials/_footer.html -->
+<footer class="footer">
+    <div class="container-fluid d-flex justify-content-between">
+        <span class="text-muted d-block text-center text-sm-start d-sm-inline-block" style="background-color: #e4d8da">Copyright © 2022 I Am Here Human Resources Managament</span>
+    </div>
+</footer>
+
+
+
+
+
+

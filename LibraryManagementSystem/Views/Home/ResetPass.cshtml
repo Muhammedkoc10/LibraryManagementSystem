@@ -1,0 +1,114 @@
+﻿
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ResetPass</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Login/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Login/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Login/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.6/semantic.css" />
+    <!--===============================================================================================-->
+</head>
+<body style="background-color: #e4d8da;">
+
+    <div class="limiter">
+        <div class="container-lg" style="background-color: #e4d8da; ; margin-left:40%;margin-top:5%; ">
+            <div class="wrap-login100 p-t-30 p-b-50">
+                <img style="width:150px;height:150px;margin-left:120px" src="~/images/loginfoto.png" />
+                <form style=" border:groove;" class="login100-form validate-form p-b-33 p-t-5" asp-controller="Home" asp-action="ResetPass" method="post">
+
+                    <div class="wrap-input100 validate-input field" data-validate="Enter password">
+                        <div class="row">
+                            <div class="col-9">
+                                <input class="input100" type="password" name="password" id="password" placeholder="Şifrenizi Giriniz">
+                            </div>
+                            <div class="col-3 mt-3">
+                                <i class="circular eye link icon" onclick="togglePassword()"></i>
+                            </div>
+                            <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                        </div>
+                    </div>
+
+                    <div class="wrap-input100 validate-input field" data-validate="Enter password">
+                        <div class="row">
+                            <div class="col-9">
+                                <input class="input100" type="password" name="password2" id="password2" placeholder="Şifrenizi Giriniz">
+                            </div>
+                            <div class="col-3 mt-3">
+                                <i class="circular eye link icon" onclick="togglePassword2()"></i>
+                            </div>
+                        </div>
+                        <span class="focus-input100" data-placeholder="&#xe80f;"></span>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-32">
+                        <button type="submit" class="btn" style="color: white; background-color: #478ba2;  border-radius: 40px; width: 55%; font-size:large; ">
+                            ŞİFREMİ YENİLE
+                        </button>
+                    </div>
+
+                    <div class="container-login100-form-btn m-t-32">
+                        @if (ViewBag.Hata != null)
+                        {
+                            <p class="text-danger">@ViewBag.Hata</p>
+                        }
+                        @if (ViewBag.Hata1 != null)
+                        {
+                            <p class="text-danger">@ViewBag.Hata1</p>
+                        }
+                        @if (ViewBag.Empty != null)
+                        {
+                            <p class="text-danger">@ViewBag.Empty</p>
+                        }
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script>
+        function togglePassword() {
+            var element = document.getElementById('password');
+            element.type = (element.type == 'password' ? 'text' : 'password');
+        }
+    </script>
+
+    <script>
+        function togglePassword2() {
+            var element = document.getElementById('password2');
+            element.type = (element.type == 'password' ? 'text' : 'password');
+        }
+    </script>
+
+</body>
+</html>

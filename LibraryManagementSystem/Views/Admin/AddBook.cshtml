@@ -1,0 +1,85 @@
+﻿@model LibraryManagementSystem.ENTITIES.ViewModel.CreateBook
+
+@{
+    ViewData["Title"] = "AddBook";
+    Layout = "_LayoutManager";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddBook</title>
+</head>
+<body>
+
+    <h4>Book</h4>
+    <hr />
+    <div class="row justify-content-md-center mt-5">
+        <div class="col-md-4">
+            <form asp-action="AddBook" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="@Model.Book.BookName" class="control-label"></label>
+                    <input asp-for="@Model.Book.BookName" class="form-control" />
+                    <span asp-validation-for="@Model.Book.BookName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Book.ISBN" class="control-label"></label>
+                    <input asp-for="@Model.Book.ISBN" class="form-control" placeholder="ISBN928-123-44-0234-1" />
+                    <span asp-validation-for="@Model.Book.ISBN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Book.Author" class="control-label"></label>
+                    <input asp-for="@Model.Book.Author" class="form-control" />
+                    <span asp-validation-for="@Model.Book.Author" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="@Model.Book.Photo" class="control-label"></label>
+                    <input asp-for="@Model.Book.Photo" type="file" accept=" image/png,image/jpeg" class="form-control" />
+                    <span asp-validation-for="@Model.Book.Photo" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="@Model.Book.CategoryID" class="control-label">Kategori</label>
+                    <select class="form-control" asp-for="@Model.Book.CategoryID">
+                        <option>
+                            Lütfen Seçiniz...
+                        </option>
+                        @foreach (var item in Model.Categories)
+                        {
+                            <option value="@item.ID">
+                                @item.CategoryName
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="@Model.Book.CategoryID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" asp-for="@Model.Book.ID" class="form-control" />
+
+                </div>
+                <div class="form-group">
+
+                    <input type="hidden" asp-for="@Model.Book.CategoryID" class="form-control" />
+
+                </div>
+                <a class="btn form-control" style="color: white; background-color: #478ba2;  border-radius: 40px; width: 78%; " asp-action="GetBook" asp-controller="Admin">Geri Dön</a>
+            </form>
+        </div>
+    </div>
+
+    <div>
+        
+    </div>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
+</html>

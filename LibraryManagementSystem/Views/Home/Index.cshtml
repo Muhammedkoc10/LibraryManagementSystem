@@ -1,0 +1,476 @@
+﻿@model LibraryManagementSystem.ENTITIES.ViewModel.BooksCategory
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
+}
+
+<head>
+</head>
+<body>
+    <header class="navbar-dark" style="margin-bottom:-1.05%;">
+        <nav class="navbar navbar-expand-lg" style=" border-radius:0px">
+            <div class="col-md-3">
+                <div class="ml-0 d-flex">
+                    <a class="navbar-brand text-white justify-content-start" href="#"><i class="fa fa-graduation-cap fa-lg mr-2"></i>Kütüphane</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-7 mr-2" style="padding-left:4%">
+                <div class="collapse navbar-collapse justify-content-end" id="nvbCollapse">
+                    <ul class="navbar-nav container-fluid m-3">
+                        <li class="nav-item pl-1">
+                            <a class="nav-link  text-white" href="#"><i class="fa fa-home fa-fw mr-1"></i>Anasayfa / Home</a>
+                        </li>
+                        <li class="nav-item active pl-1">
+                            <a class="nav-link" href="#"><i class="fa fa-th-list fa-fw mr-1"></i>Kitaplar / Books</a>
+                        </li>
+                        <li class="nav-item pl-1">
+                            <a href="muhammedkoc10@gmail.com"><i class="fa fa-envelope"></i> muhammedkoc10@gmail.com</a>
+                        </li>
+                        <li class="nav-item pl-1">
+                            <a href="tel:+90-543-291-7299"><i class="fa fa-phone"></i> +90-543-291-7299</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-left:100px">
+                <ul class="navbar-nav container-fluid">
+                    <li class="nav-item pl-1 mr-0">
+                        <a class="nav-link text-white" asp-action="Login" asp-controller="Home"><i class="fa fa-sign-in fa-fw mr-1"></i>Giriş Yap / Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <!--<header class="navbar-wrapper">
+        <div class="container">
+            <div class="row">
+                <nav class="navbar navbar-default">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="navbar-header">
+                                <div class="navbar-brand">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-10">
+                            <div class="header-topbar">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="topbar-info">
+                                            <a href="tel:+90-543-291-7299"><i class="fa fa-phone"></i>+90-543-291-7299</a>
+                                            <a href="muhammedkoc10@gmail.com"><i class="fa fa-envelope"></i>a@gmail.com</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="topbar-links">
+                                            <a asp-action="Login" asp-controller="Home"><i class="fa fa-lock"></i>Giriş Yap / Login</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="navbar-collapse">
+                                <!--<ul class="nav navbar-nav">  // SİTENİN BÖLÜMLERİNİ BURAYA AL!!
+                                    <li class="dropdown active">
+                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" >Home</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="index-2.html">Home V1</a></li>
+                                            <li><a href="home-v2.html">Home V2</a></li>
+                                            <li><a href="home-v3.html">Home V3</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown">
+                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
+                                            <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
+                                            <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
+                                            <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
+                                            <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
+                                        </ul>a
+                                    </li>-->
+    @*-->*@
+    <!--@*<li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
+            <ul class="dropdown-menu">
+                <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
+                <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Pages</a>
+            <ul class="dropdown-menu">
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="checkout.html">Checkout</a></li>
+                <li><a href="signin.html">Signin/Register</a></li>
+                <li><a href="404.html">404/Error</a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
+            <ul class="dropdown-menu">
+                <li><a href="blog.html">Blog Grid View</a></li>
+                <li><a href="blog-detail.html">Blog Detail</a></li>
+            </ul>
+        </li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>*@-->
+    <!--</ul>-->
+    <!--</div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </header>-->
+    <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <figure>
+                    <img src="~/LIBRARIA-Online-Library/images/header-slider/home-v1/header-slide.jpg" />
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Kütüphaneye Gelmeden Evden Kirala!</h3>
+                        <h2>Kitapların Dünyasını Keşfet</h2>
+                        <p>Zengin kütüphanemizde istediğin kitabı bulamadın mı? <br /><br />Sakın endişelenme bizi ara 2 hafta sonra gel ve al!</p>
+                        <div class="slide-buttons">
+                            <a href="#" class="btn btn-primary">Tüm Kitapları Gör</a>
+                            <a href="#" class="btn btn-default">Hemen Kitap Kirala</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <figure>
+                    <img alt="Home Slide" src="~/LIBRARIA-Online-Library/images/header-slider/home-v1/header-slide.jpg" />
+                </figure>
+                <div class="container">
+                    <div class="carousel-caption">
+                        <h3>Rent From Home!</h3>
+                        <h2>Explore the World of Books</h2>
+                        <p>Did not find the book you wanted in our rich library? <br /><br />Do not worry, call us, come and get it in 2 weeks!</p>
+                        <div class="slide-buttons">
+                            <a href="#" class="btn btn-primary">Show All Books</a>
+                            <a href="#" class="btn btn-default">Rent Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#home-v1-header-carousel" data-slide="prev"></a>
+        <a class="right carousel-control" href="#home-v1-header-carousel" data-slide="next"></a>
+    </div>
+    <section class="search-filters">
+        <div class="container">
+            <div class="filter-box">
+                <h3>Kütüphanede hangi kitabı arıyorsunuz? <hr /> Which book are you looking for in the library? </h3>
+                <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <label class="sr-only" for="keywords">İsme Göre Ara</label>
+                            <input class="form-control" placeholder="İsme Göre Ara / Search by Keywords" id="keywords" name="keywords" type="text">
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <select name="category" id="category" class="form-control">
+
+                                @foreach (var item in Model.Category)
+                                {
+                                    <option>
+                                        @item.CategoryName
+                                    </option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6">
+                        <div class="form-group">
+                            <input class="form-control" type="submit" value="Ara / Search">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="category-filter section-padding" >
+        <div class="container">
+            <div class="center-content">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3">
+                        <h2 class="section-title">Popüler kitaplara göz atın...</h2>
+                        <span class="underline center"></span>
+                        <p class="lead">Son zamanların en popüler kitapları kategorilere göre önüne seriliyor.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-buttons">
+                <div class="filter btn" data-filter="all">Tüm Kitaplar</div>
+                <div class="filter btn" data-filter="all">Bilim Kurgu</div>
+                <div class="filter btn" data-filter="all">Aksiyon Macera</div>
+                <div class="filter btn" data-filter="all">Tarih</div>
+                <div class="filter btn" data-filter="all">Kişisel Gelişim</div>
+                <div class="filter btn" data-filter="all">Korku-Gerilim</div>
+                <div class="filter btn" data-filter="all">Dini</div>
+            </div>
+        </div>
+
+        <section class="wrapper">
+            <div class="container-fostrap">
+                <div class="content">
+                    <div class="container">
+                        <div class="row">
+                            <div style="margin-top:-10%; margin-bottom:-10%">
+                                @for (int i = 0; i < 3; i++)
+                                {<div class="card col-md-4 h-100 bg-dark">
+                                        <a class="img-card" href="#">
+                                            <img src="@Model.Books[i].PhotoName" />
+                                        </a>
+                                        <div class="card-content " style="float:left">
+                                            <h4 class="card-title">
+                                                <a href="#">
+                                                    @Model.Books[i].BookName
+                                                </a>
+                                            </h4>
+                                            <p class="">
+                                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
+                                            </p>
+                                        </div>
+                                        <div class="card-read-more">
+                                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
+                                                Read More
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section class="team section-padding">
+        <div class="container">
+            <div class="center-content">
+                <h2 class="section-title">KÜTÜPHANE GÖREVLİLERİYLE TANIŞIN</h2>
+                <hr />
+                <h2 class="section-title">Meet Our Staff</h2>
+                <span class="underline center"></span>
+                <br /> <br /> <br />
+            </div>
+            <div class="team-list">
+                <div class="team-member">
+                    <figure>
+                        <img src="~/img/mamm.jpg" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <h4>Muhammed Koç</h4>
+                            <br />
+                            <span class="designation">Kütüphane Sorumlusu / Library Manager</span>
+                            <br />
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <figure>
+                        <img src="~/img/23.JPG" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <h4>Canan Koç</h4>
+                            <br />
+                            <span class="designation">Kütüphane Görevlisi / Library Attendant</span>
+                            <br />
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <figure>
+                        <img src="~/img/default.jpg" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <h4>Can Koç</h4>
+                            <br />
+                            <span class="designation">Kütüphane Görevli Yardımcısı / Librarian</span>
+                            <br />
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news-events section-padding banner">
+        <div class="container">
+            <div class="center-content">
+                <h2 class="section-title c-light">Etkinlikler / Events</h2>
+                <hr />
+                <p class="lead c-light">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.</p>
+            </div>
+            <div class="news-events-list">
+                <div class="single-news-event">
+                    <figure>
+                        <img src="~/LIBRARIA-Online-Library/images/news-event/news-event-01.jpg" alt="News & Event" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <div class="content_meta_category">
+                                <span class="arrow-right"></span>
+                                <a href="#." rel="category tag">ETKİNLİK / EVENT</a>
+                            </div>
+                            <ul class="news-event-info">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-calendar"></i>
+                                        25 Ocak / January 2023
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o"></i>
+                                        10:00 - 16:00
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-map-marker"></i>
+                                        Çanakkale / Merkez
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3><a href="#">Kütüphanenin Kitaplarını beraber diziyoruz</a></h3>
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model.</p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-news-event">
+                    <figure>
+                        <img src="~/LIBRARIA-Online-Library/images/news-event/news-event-02.jpg" alt="News & Event" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <div class="content_meta_category">
+                                <span class="arrow-right"></span>
+                                <a href="#." rel="category tag">ETKİNLİK / EVENT</a>
+                            </div>
+                            <ul class="news-event-info">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-calendar"></i>
+                                        2 Şubat / February 2023
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-map-marker"></i>
+                                        Çanakkale / Yenice / Karadoru Köyü
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3><a href=".html#">Köy Kütüphanesini hep beraber boyuyoruz </a></h3>
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', </p>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="single-news-event">
+                    <figure>
+                        <img src="~/LIBRARIA-Online-Library/images/news-event/news-event-03.jpg" alt="News & Event" />
+                    </figure>
+                    <div class="content-block">
+                        <div class="member-info">
+                            <div class="content_meta_category">
+                                <span class="arrow-right"></span>
+                                <a href="#." rel="category tag">ETKİNLİK / EVENT</a>
+                            </div>
+                            <ul class="news-event-info">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-calendar"></i>
+                                        27 Mart / March 2023
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-map-marker"></i>
+                                        Çanakkale Merkez Kütüphanesi
+                                    </a>
+                                </li>
+                            </ul>
+                            <h3><a href=".html#">Kütüphanecilik haftasını kutluyoruz</a></h3>
+                            <p>The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="social-network aligncenter">
+        <div class="container-fluid">
+            <div class="center-content">
+                <h2 class="section-title">Bizi Takip Et / Follow Us</h2>
+                <hr />
+                <p>Etkinliklerden haberdar olmak için bizi takip et</p>
+                <p>Follow us to be informed about events</p>
+            </div>
+            <div style="margin-left:25.5%">
+                <ul>
+                    <li>
+                        <a class="facebook" href="https://www.facebook.com/mhmmdkoc17" target="_blank">
+                            <span>
+                                <i class="fa fa-facebook-f"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="twitter" href="https://twitter.com/mhmkoc17" target="_blank">
+                            <span>
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a class="linkedin" href="https://www.linkedin.com/in/muhammed-k0c/" target="_blank">
+                            <span>
+                                <i class="fa fa-linkedin"></i>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="youtube" href="https://www.youtube.com/channel/UCPy-s-g4jZhmcxU7NcXq0Mg" target="_blank">
+                            <span>
+                                <i class="fa fa-youtube"></i>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-green text-center text-white">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="#">Muhammed Koç</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+</body>
+
+

@@ -1,0 +1,74 @@
+﻿@model LibraryManagementSystem.ENTITIES.ViewModel.CreateRent
+
+@{
+    ViewData["Title"] = "RentBook";
+    Layout = "_LayoutManager";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RentBook</title>
+</head>
+<body>
+
+<h4>RentBook</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RentBook">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="RentStartTime" class="control-label"></label>
+                <input asp-for="RentStartTime" class="form-control" />
+                <span asp-validation-for="RentStartTime" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="@Model.RentBook.RentEndTime" class="control-label"></label>
+                <input asp-for="@Model.RentBook.RentEndTime" class="form-control" />
+                <span asp-validation-for="@Model.RentBook.RentEndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <input type="hidden" asp-for="@Model.User.ID" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="@Model.RentBook.BookID" class="control-label">Kategori</label>
+                <select class="form-control" asp-for="@Model.RentBook.BookID">
+                    <option>
+                        Lütfen Seçiniz...
+                    </option>
+                    @foreach (var item in Model.Books)
+                    {
+                        <option value="@item.ID">
+                            @item.BookName
+                        </option>
+                    }
+                </select>
+                <span asp-validation-for="@Model.RentBook.BookID" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="@Model.RentBook.BookID" class="control-label"></label>
+                <input type="hidden" asp-for="@Model.RentBook.BookID" class="form-control" />
+                <span asp-validation-for="@Model.RentBook.BookID" class="text-danger"></span>
+            </div>*@
+            
+            <div class="form-group">
+                <input asp-action="RentBook" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
+</body>
+</html>
