@@ -22,19 +22,14 @@
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model.RentBook) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RentStartTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RentEndTime)
-
-            <td>
-                @Html.DisplayFor(modelItem => item.Book.Photo)
-            </td>
-        </tr>
-}
-    </tbody>
+    @foreach (var item in ViewBag.Bookss)
+    {
+        <tbody class="row">
+            <tr>
+                <td>
+                    @item.PhotoName
+                </td>
+            <tr />
+        </tbody>
+    }
 </table>

@@ -38,9 +38,10 @@ namespace LibraryManagementSystem.UI.Controllers
             _env = env;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int id)
         {
-            return View();
+            User userEntrance = _context.Users.Where(x => x.ID == id).FirstOrDefault();
+            return View(userEntrance);
         }
 
         public IActionResult GetBook()
@@ -64,7 +65,8 @@ namespace LibraryManagementSystem.UI.Controllers
             createRent.RentBook.UserID= id;
             int y = createRent.RentBook.BookID;
             createRent.Books =_context.Books.Where(x => x.ID == y).ToList();
-            createRent.RentBook.RentStartTime = DateTime.Now.Date;
+            createRent.RentBook.RentStartTime = DateTime.Now;
+            createRent.RentBook.RentEndTime = DateTime.Now.AddDays(14);
             createRent.RentBook.IsActive = true;
             _rentbook.Add(createRent.RentBook);
             return RedirectToAction("GetMyRentBook",new { id = id });
@@ -72,6 +74,8 @@ namespace LibraryManagementSystem.UI.Controllers
 
         public IActionResult GetMyRentBook(int id)
         {
+            ViewBag.Bookss = _context.RentBooks.Where(x => x.UserID == id).Select(x=>x.Book).ToList();
+            ViewBag.Rent = _context.RentBooks.Where(x => x.UserID == id).ToList();
             CreateRents createRents = new CreateRents();
             createRents.RentBook = _context.RentBooks.Where(x => x.UserID == id).ToList();
             return View(createRents);

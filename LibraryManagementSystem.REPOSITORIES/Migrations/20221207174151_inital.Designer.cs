@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LibraryManagementSystem.REPOSITORIES.Migrations
 {
     [DbContext(typeof(LMSDbContext))]
-    [Migration("20221126155637_inital")]
+    [Migration("20221207174151_inital")]
     partial class inital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -165,13 +165,13 @@ namespace LibraryManagementSystem.REPOSITORIES.Migrations
             modelBuilder.Entity("LibraryManagementSystem.ENTITIES.Entities.RentBook", b =>
                 {
                     b.HasOne("LibraryManagementSystem.ENTITIES.Entities.Book", "Book")
-                        .WithMany("RentBooks")
+                        .WithMany()
                         .HasForeignKey("BookID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("LibraryManagementSystem.ENTITIES.Entities.User", "User")
-                        .WithMany("RentBooks")
+                        .WithMany()
                         .HasForeignKey("UserID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -181,19 +181,9 @@ namespace LibraryManagementSystem.REPOSITORIES.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("LibraryManagementSystem.ENTITIES.Entities.Book", b =>
-                {
-                    b.Navigation("RentBooks");
-                });
-
             modelBuilder.Entity("LibraryManagementSystem.ENTITIES.Entities.Category", b =>
                 {
                     b.Navigation("Books");
-                });
-
-            modelBuilder.Entity("LibraryManagementSystem.ENTITIES.Entities.User", b =>
-                {
-                    b.Navigation("RentBooks");
                 });
 #pragma warning restore 612, 618
         }

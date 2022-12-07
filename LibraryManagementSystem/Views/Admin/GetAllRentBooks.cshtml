@@ -1,0 +1,49 @@
+﻿@model LibraryManagementSystem.ENTITIES.ViewModel.CreateRentAll
+
+@{
+    ViewData["Title"] = "GetAllRentBooks";
+    Layout = "~/Views/Shared/_LayoutManager.cshtml";
+}
+
+<h1>GetAllRentBooks</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Books)
+        {
+            <tr>
+                <td>
+                    @item.PhotoName
+                </td>
+            </tr>
+        }
+
+        @foreach (var item2 in Model.Users)
+        {
+            <tr>
+                <td>
+                    @item2.FirstName
+                </td>
+            </tr>
+        }
+        @foreach (var item3 in Model.RentBooks)
+        {
+    <tr>
+        <td>
+            @item3.RentStartTime
+        </td>
+        <td>
+            @item3.RentEndTime
+        </td>
+    </tr>
+        }
+    </tbody>
+</table>

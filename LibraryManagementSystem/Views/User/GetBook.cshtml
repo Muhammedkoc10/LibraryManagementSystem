@@ -12,67 +12,70 @@
     <title>GetBook</title>
 </head>
 <body>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.BookName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.ISBN)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Author)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Photo)
-                </th>
-                @*<th>
-                        @Html.DisplayNameFor(model => model.CategoryID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.ID)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.IsActive)
-                    </th>*@
-                <th>Kirala</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
+    <div class="col-md-9" style="margin-left:12%">
+        <table class="table col-md-1">
+            <thead>
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BookName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.ISBN)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Author)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Photo)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.CategoryID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.IsActive)
-                        </td>*@
-                    <td>
-                        
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.PhotoName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BookName)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ISBN)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Author)
+                    </th>
+
+                    @*<th>
+                            @Html.DisplayNameFor(model => model.CategoryID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ID)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.IsActive)
+                        </th>*@
+                    <th></th>
                 </tr>
-            }
-            
-        </tbody>
-    </table>
-    <a asp-action="RentBook" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">Kirala</a>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img style="width:150px;height:150px" src="@item.PhotoName" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BookName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ISBN)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Author)
+                        </td>
+
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.CategoryID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsActive)
+                            </td>*@
+                        <td>
+                            <a class="btn form-control" style="color: white; background-color: #478ba2;  border-radius: 40px; width: 100%; " asp-action="EditBook" asp-controller="Admin" asp-route-id="@item.ID">Düzenle</a>
+                            <br />
+                            <a class="btn form-control" style="color: white; background-color: #478ba2;  border-radius: 40px; width: 100%; " asp-action="RemoveBook" asp-controller="Admin" asp-route-id="@item.ID">Sil</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

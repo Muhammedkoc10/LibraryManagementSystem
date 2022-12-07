@@ -44,6 +44,8 @@ namespace LibraryManagementSystem.UI.Controllers
             User userEntrance = _context.Users.Where(x => x.ID == id).FirstOrDefault();
             return View(userEntrance);
         }
+
+        [HttpGet]
         public IActionResult AddBook()
         {
             CreateBook createBook = new CreateBook();
@@ -95,7 +97,6 @@ namespace LibraryManagementSystem.UI.Controllers
             return RedirectToAction("GetBook");
         }
 
-
         public IActionResult CreateUser()
         {
             return View();
@@ -109,7 +110,6 @@ namespace LibraryManagementSystem.UI.Controllers
                 user.PhotoName = "\\img\\3586f868_94a2_4fd2_8933_17cd1ff7605e.jpeg";
             else
                 user.PhotoName = SaveThePicture(user.Photo);
-
             _user.Add(user);
             return RedirectToAction("GetUser");
         }
@@ -119,7 +119,42 @@ namespace LibraryManagementSystem.UI.Controllers
             return View(_user.GetAll());
         }
 
+        public IActionResult EditUser(int id)
+        {
+            User updateUser = _user.GetByID(id);
+            return View(updateUser);
+        }
 
+        [HttpPost]
+        public IActionResult EditUser(User user, int id)
+        {
+            User updatedUser = _user.GetByID(id);
+            updatedUser.Address = user.Address;
+            updatedUser.FirstName = user.FirstName;
+            updatedUser.LastName = user.LastName;
+            updatedUser.Mail = user.Mail;
+            updatedUser.PersonelPhoneNumber = user.PersonelPhoneNumber;
+            if (updatedUser.Photo != null)
+                updatedUser.PhotoName = SaveThePicture(user.Photo);
+            _user.Update(updatedUser);
+            return RedirectToAction("GetUser");
+        }
+
+        public IActionResult RemoveUser(int id)
+        {
+            var deleteUser = _user.GetByID(id);
+            _user.Remove(deleteUser);
+            return RedirectToAction("GetUser");
+        }
+        public IActionResult GetAllRentBooks(int id)
+        {
+            CreateRentAll createRentAll = new CreateRentAll();
+            createRentAll.Books = _book.GetAll();
+            createRentAll.RentBooks = _rentbook.GetAll();
+            createRentAll.Users = _user.GetAll();
+            return View(createRentAll);
+        }
+       
         private string SaveThePicture(IFormFile img)
         {
             string filePath = Path.Combine(_env.WebRootPath, "img"); // ~/img

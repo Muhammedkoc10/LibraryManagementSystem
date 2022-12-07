@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>I'm HeRe</title>
+    <title>Library Management System</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="~/temp/assets/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/temp/assets/vendors/css/vendor.bundle.base.css">
@@ -31,28 +31,24 @@
 <body>
     <div class="container-scroller">
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="background-color: #e4d8da ">
-                <a class="navbar-brand brand-logo" href="#">
-                    <img style="width:50px; height:50px" src="~/temp/assets/images/I_am_Here.png" />
-                </a>
-                @*<img src="~/I_am_Here.png" />*@
-                <a class="navbar-brand brand-logo-mini" href="#"><img style="color: #478ba2;width:auto" src="~/I_am_Here.png" alt="logo" /></a>
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center" style="background-color: #b58d8d ">
+
             </div>
-            <div class="navbar-menu-wrapper d-flex align-items-stretch" style="color: white; background-color: #e4d8da ">
-                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="color: #478ba2">
+            <div class="navbar-menu-wrapper d-flex align-items-stretch" style="color: white; background-color: #b58d8d ">
+                <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize" style="color: #1464a0">
                     <span class="mdi mdi-menu"></span>
                 </button>
-               
+
                 <ul class="navbar-nav navbar-nav-right" style="color:white;">
                     @if (Context.User.IsInRole("Admin"))
                     {
-                      
+
                         <!--<li class="nav-item dropdown">
-                            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="~/temp/#" data-bs-toggle="dropdown">
-                                <i style="color: #478ba2" class="mdi mdi-bell-outline"></i>
-                                <span class="count-symbol bg-danger"></span>
-                            </a>-->
-                            @*<div id="noti" class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                        <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="~/temp/#" data-bs-toggle="dropdown">
+                            <i style="color: #478ba2" class="mdi mdi-bell-outline"></i>
+                            <span class="count-symbol bg-danger"></span>
+                        </a>-->
+                        @*<div id="noti" class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
                                 <h6 class="p-3 mb-0">Bildirimler</h6>
                                 <div id="bildirim"></div>
                                 <div class="dropdown-divider"></div>
@@ -65,17 +61,16 @@
                     }
                     <li class="nav-item nav-logout d-none d-lg-block">
                         <a class="nav-link" href="~/Home/Login">
-                            <i class="mdi mdi-power " style="color: #478ba2"></i><span class="" style="color: #478ba2"><b>Çıkış Yap</b></span>
+                            <i class="mdi mdi-power " style="color: #1464a0"></i><span class="" style="color: #1464a0"><b>Çıkış Yap</b></span>
                         </a>
                     </li>
                 </ul>
-             
             </div>
         </nav>
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-            <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: #e4d8da; ">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar" style="background-color: #e4d8da ">
                 <ul class="nav" style="color: white; ">
                     @*@if (ViewBag.UserEntranceID != null)*@
                     @if (@Context.User.FindFirst("ID").Value != null)
@@ -93,8 +88,6 @@
                                     <span>
                                         @Context.User.FindFirst(ClaimTypes.Role).Value.ToString()
                                     </span>
-
-
                                 </div>
                                 <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
                             </a>
@@ -104,153 +97,61 @@
                     {
                         <li class="nav-item">
                             <a class="nav-link" asp-action="Index" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">
-                                <span class="menu-title" style="color: #61848a">Ana Sayfa</span>
-                                <i class="mdi mdi-home menu-icon" style="color: #61848a"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">
-                                <span class="menu-title" style="color: #61848a">Profil</span>
-                                <i class="mdi mdi-face-profile menu-icon" style="color: #61848a"></i>
+                                <span class="menu-title" style="color: #1464a0">Ana Sayfa</span>
+                                <i class="mdi mdi-home menu-icon" style="color: #1464a0 "></i>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Personel İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                <span class="menu-title" style="color: #1464a0">Kullanıcı İşlemleri</span>
+                                <i class="menu-arrow" style="color: #1464a0"></i>
+                                <i style="color: #1464a0" class="mdi mdi-format-list-bulleted menu-icon"></i>
                             </a>
-                            @*<div class="collapse" id="general-pages">
+                            <div class="collapse" id="general-pages">
                                 <ul class="nav flex-column sub-menu">
-                                    <li style="color: #af8786; " class="nav-item"> <a class="nav-link" asp-action="CreateEmployee" asp-controller="Manager" style="color: #61848a "> Personel Ekle</a></li>
-                                    <li style="color: #af8786; " class="nav-item"> <a class="nav-link" asp-action="GetAllPersonel" asp-controller="Manager" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a "> Personel Listele </a></li>
-                                    <li style="color: #af8786; " class="nav-item"> <a class="nav-link" asp-action="GetSpendingList" asp-controller="Manager" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a "> Harcama Listele </a></li>
-                                    <li style="color: #af8786; " class="nav-item"> <a class="nav-link" asp-action="GetPaymentList" asp-controller="Manager" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Avans Listele </a></li>
-                                    <li style="color: #af8786; " class="nav-item"> <a class="nav-link" asp-action="GetVacationList" asp-controller="Manager" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> İzin İşlemleri </a></li>
-
-
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="CreateUser" asp-controller="Admin" style="color: #1464a0 "> Kullanıcı Ekle</a></li>
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="GetUser" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #1464a0 ">Kullanıcı Listele </a></li>
                                 </ul>
-                            </div>*@
+                            </div>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
+                                <span class="menu-title" style="color: #1464a0">Kitap İşlemleri</span>
+                                <i class="menu-arrow" style="color: #1464a0"></i>
+                                <i style="color: #1464a0" class="mdi mdi-format-list-bulleted menu-icon"></i>
+                            </a>
+                            <div class="collapse" id="general-pages">
+                                <ul class="nav flex-column sub-menu">
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="AddBook" asp-controller="Admin" style="color: #1464a0 ">Kitap Ekle</a></li>
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="GetBook" asp-controller="Admin" style="color: #1464a0 ">Kitapları Listele </a></li>
+                                </ul>
+                            </div>
+                        </li>
                     }
-
-
-
                     @if (Context.User.IsInRole("User"))
                     {
                         <li class="nav-item">
-                            <a class="nav-link" asp-action="GetBook" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">
-                                <span class="menu-title" style="color: #61848a">Ana Sayfa</span>
-                                <i class="mdi mdi-home menu-icon" style="color: #61848a"></i>
+                            <a class="nav-link" asp-action="Index" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">
+                                <span class="menu-title" style="color: #1464a0">Ana Sayfa</span>
+                                <i class="mdi mdi-home menu-icon" style="color: #1464a0 "></i>
                             </a>
                         </li>
-     
                         <li class="nav-item">
                             <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Harcama İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
-                            </a>
-                            @*<div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreateSpending" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a">Harcama Bildir</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="SpendingList" asp-controller="Employee" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Harcama Listelerim </a></li>
-
-                                </ul>
-                            </div>*@
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Avans İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
-                            </a>
-                            @*<div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreateAdvancePayment" asp-controller="Employee" style="color: #478ba2">Avans Bildir</a><a class="nav-link" asp-action="CreateAdvancePayment" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a">Avans Bildir</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="PaymentList" asp-controller="Employee" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Avans  Listelerim </a></li>
-
-                                </ul>
-                            </div>*@
-                        </li>
-
-                        @*<li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">İzin İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
+                                <span class="menu-title" style="color: #1464a0">Kitap İşlemleri</span>
+                                <i class="menu-arrow" style="color: #1464a0"></i>
+                                <i style="color: #1464a0" class="mdi mdi-format-list-bulleted menu-icon"></i>
                             </a>
                             <div class="collapse" id="general-pages">
                                 <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreateVacation" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a">İzin Talep Oluştur</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="VacationList" asp-controller="Employee" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> İzin Listelerim </a></li>
-
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="GetBook" asp-controller="User" style="color: #1464a0 "> Kitapları Listele</a></li>
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="RentBook" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #1464a0 ">Kitap Kirala </a></li>
+                                    <li style="color: #1464a0; " class="nav-item"> <a class="nav-link" asp-action="GetMyRentBook" asp-controller="User" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #1464a0 ">Kiralanan Kitapları Listele </a></li>
                                 </ul>
                             </div>
-                        </li>*@
-
+                        </li>
                     }
-
-
-                    @*@if (Context.User.IsInRole("Admin"))
-                    {
-                        <li class="nav-item">
-                            <a class="nav-link" asp-action="Index" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()">
-                                <span class="menu-title" style="color: #61848a">Ana Sayfa</span>
-                                <i class="mdi mdi-home menu-icon" style="color: #61848a"></i>
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Paket İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
-                            </a>*@
-                            @*<div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreatePackage" asp-controller="Admin" style="color: #61848a"> Paket Ekle</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="GetPackage" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Paket Listele </a></li>
-
-                                </ul>
-                            </div>*@
-                        @*</li>*@
-
-                        @*<li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Yönetici İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreateManager" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Yönetici Ekle</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="GetManager" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a">Personel Listele </a></li>
-
-                                </ul>
-                            </div>
-                        </li>*@
-                        @*<li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="collapse" href="~/temp/#general-pages" aria-expanded="false" aria-controls="general-pages">
-                                <span class="menu-title" style="color: #61848a">Şirket İşlemleri</span>
-                                <i class="menu-arrow" style="color: #61848a"></i>
-                                <i style="color: #61848a" class="mdi mdi-format-list-bulleted menu-icon"></i>
-                            </a>
-                            <div class="collapse" id="general-pages">
-                                <ul class="nav flex-column sub-menu">
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="CreateCompany" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a"> Şirket Ekle</a></li>
-                                    <li style="color: #478ba2;" class="nav-item"> <a class="nav-link" asp-action="GetCompanies" asp-controller="Admin" asp-route-id="@Context.User.FindFirst("ID").Value.ToString()" style="color: #61848a">Şirket Listele </a></li>
-
-                                </ul>
-                            </div>
-                        </li>*@
-
-                    }
-
-               
-    
                 </ul>
             </nav>
             <!-- partial -->
@@ -339,28 +240,26 @@
 
         let pathname = window.location.pathname.split('/')
 
-        //fetch("/Manager/GetSpendingList2/" + pathname[pathname.length - 1])
-        //    .then((res) => res.json())
-        //    .then(data => {
-        //        $.each(data, function (i, e) {
+                    //fetch("/Manager/GetSpendingList2/" + pathname[pathname.length - 1])
+                    //    .then((res) => res.json())
+                    //    .then(data => {
+                    //        $.each(data, function (i, e) {
 
-        //            if (i < 3) {
-        //                $('#bildirim').append('<a class="dropdown-item preview-item"> <div class="preview-thumbnail"> <div class="preview-icon bg-success"> <i class="mdi mdi-calendar"></i> </div> </div> <div class="preview-item-content d-flex align-items-start flex-column justify-content-center"> <h6 class="preview-subject font-weight-normal mb-1"> ' + e.person.firstName + ' ' + e.person.lastName + ' </h6> <p class="text-gray ellipsis mb-0"> Harcama bildirdi. </p> </div> </a> <div class="dropdown-divider"></div>');
-        //            }
-        //        });
-        //    });
-        //fetch("/Manager/GetPaymentList2/" + pathname[pathname.length - 1])
-        //    .then((res) => res.json())
-        //    .then(data => {
-        //        $.each(data, function (i, e) {
+                    //            if (i < 3) {
+                    //                $('#bildirim').append('<a class="dropdown-item preview-item"> <div class="preview-thumbnail"> <div class="preview-icon bg-success"> <i class="mdi mdi-calendar"></i> </div> </div> <div class="preview-item-content d-flex align-items-start flex-column justify-content-center"> <h6 class="preview-subject font-weight-normal mb-1"> ' + e.person.firstName + ' ' + e.person.lastName + ' </h6> <p class="text-gray ellipsis mb-0"> Harcama bildirdi. </p> </div> </a> <div class="dropdown-divider"></div>');
+                    //            }
+                    //        });
+                    //    });
+                    //fetch("/Manager/GetPaymentList2/" + pathname[pathname.length - 1])
+                    //    .then((res) => res.json())
+                    //    .then(data => {
+                    //        $.each(data, function (i, e) {
 
-        //            if (i < 3) {
-        //                $('#bildirim').append('<a class="dropdown-item preview-item"> <div class="preview-thumbnail"> <div class="preview-icon bg-success"> <i class="mdi mdi-calendar"></i> </div> </div> <div class="preview-item-content d-flex align-items-start flex-column justify-content-center"> <h6 class="preview-subject font-weight-normal mb-1"> ' + e.person.firstName + ' ' + e.person.lastName + ' </h6> <p class="text-gray ellipsis mb-0"> Avans bildirdi. </p> </div> </a> <div class="dropdown-divider"></div>');
-        //            }
-        //        });
-        //    });
-
-
+                    //            if (i < 3) {
+                    //                $('#bildirim').append('<a class="dropdown-item preview-item"> <div class="preview-thumbnail"> <div class="preview-icon bg-success"> <i class="mdi mdi-calendar"></i> </div> </div> <div class="preview-item-content d-flex align-items-start flex-column justify-content-center"> <h6 class="preview-subject font-weight-normal mb-1"> ' + e.person.firstName + ' ' + e.person.lastName + ' </h6> <p class="text-gray ellipsis mb-0"> Avans bildirdi. </p> </div> </a> <div class="dropdown-divider"></div>');
+                    //            }
+                    //        });
+                    //    });
     </script>
 
     @RenderSection("Scripts", required: false)

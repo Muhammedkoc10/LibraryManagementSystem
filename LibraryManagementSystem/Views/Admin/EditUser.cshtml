@@ -1,13 +1,14 @@
 ﻿@model LibraryManagementSystem.ENTITIES.Entities.User
 
 @{
-    ViewData["Title"] = "CreateUser";
+    ViewData["Title"] = "EditUser";
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
+
 <div class="row justify-content-md-center mt-5">
     <div class="col-md-5" style="margin-top:1%">
-        <form enctype="multipart/form-data" asp-action="CreateUser">
+        <form asp-action="EditUser">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="FirstName" class="control-label"></label>
@@ -35,22 +36,21 @@
                 <span asp-validation-for="Mail" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="PersonelPhoneNumber" class="control-label"></label>
                 <input asp-for="PersonelPhoneNumber" class="form-control" />
                 <span asp-validation-for="PersonelPhoneNumber" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Gender" class="control-label">Cinsiyet Seçiniz</label>
-                <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderEnum>()" class="form-control"> </select>
+                <label asp-for="Gender" class="control-label"></label>
+                <select asp-items="@Html.GetEnumSelectList<GenderEnum>()" class="form-control"> </select>
+                <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
+            <a class="btn form-control" style="color: white; background-color: #478ba2;  border-radius: 40px; width: 100%; " asp-action="GetUser" asp-controller="Admin">Güncelle</a>
         </form>
     </div>
 </div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -9,7 +9,7 @@
 <body>
     <header class="navbar-dark" style="margin-bottom:-1.05%;">
         <nav class="navbar navbar-expand-lg" style=" border-radius:0px">
-            <div class="col-md-3">
+            <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="ml-0 d-flex">
                     <a class="navbar-brand text-white justify-content-start" href="#"><i class="fa fa-graduation-cap fa-lg mr-2"></i>Kütüphane</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nvbCollapse" aria-controls="nvbCollapse">
@@ -44,87 +44,7 @@
             </div>
         </nav>
     </header>
-    <!--<header class="navbar-wrapper">
-        <div class="container">
-            <div class="row">
-                <nav class="navbar navbar-default">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <div class="navbar-header">
-                                <div class="navbar-brand">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-10">
-                            <div class="header-topbar">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="topbar-info">
-                                            <a href="tel:+90-543-291-7299"><i class="fa fa-phone"></i>+90-543-291-7299</a>
-                                            <a href="muhammedkoc10@gmail.com"><i class="fa fa-envelope"></i>a@gmail.com</a>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="topbar-links">
-                                            <a asp-action="Login" asp-controller="Home"><i class="fa fa-lock"></i>Giriş Yap / Login</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="navbar-collapse">
-                                <!--<ul class="nav navbar-nav">  // SİTENİN BÖLÜMLERİNİ BURAYA AL!!
-                                    <li class="dropdown active">
-                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" >Home</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="index-2.html">Home V1</a></li>
-                                            <li><a href="home-v2.html">Home V2</a></li>
-                                            <li><a href="home-v3.html">Home V3</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="dropdown">
-                                        <a data-toggle="dropdown" class="dropdown-toggle disabled" href="books-media-list-view.html">Books &amp; Media</a>
-                                        <ul class="dropdown-menu">
-                                            <li><a href="books-media-list-view.html">Books &amp; Media List View</a></li>
-                                            <li><a href="books-media-gird-view-v1.html">Books &amp; Media Grid View V1</a></li>
-                                            <li><a href="books-media-gird-view-v2.html">Books &amp; Media Grid View V2</a></li>
-                                            <li><a href="books-media-detail-v1.html">Books &amp; Media Detail V1</a></li>
-                                            <li><a href="books-media-detail-v2.html">Books &amp; Media Detail V2</a></li>
-                                        </ul>a
-                                    </li>-->
-    @*-->*@
-    <!--@*<li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="news-events-list-view.html">News &amp; Events</a>
-            <ul class="dropdown-menu">
-                <li><a href="news-events-list-view.html">News &amp; Events List View</a></li>
-                <li><a href="news-events-detail.html">News &amp; Events Detail</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="#">Pages</a>
-            <ul class="dropdown-menu">
-                <li><a href="cart.html">Cart</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="signin.html">Signin/Register</a></li>
-                <li><a href="404.html">404/Error</a></li>
-            </ul>
-        </li>
-        <li class="dropdown">
-            <a data-toggle="dropdown" class="dropdown-toggle disabled" href="blog.html">Blog</a>
-            <ul class="dropdown-menu">
-                <li><a href="blog.html">Blog Grid View</a></li>
-                <li><a href="blog-detail.html">Blog Detail</a></li>
-            </ul>
-        </li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>*@-->
-    <!--</ul>-->
-    <!--</div>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-    </header>-->
+
     <div data-ride="carousel" class="carousel slide" id="home-v1-header-carousel">
         <div class="carousel-inner">
             <div class="item active">
@@ -197,8 +117,8 @@
         </div>
     </section>
 
-    <section class="category-filter section-padding" >
-        <div class="container">
+    <section class="category-filter section-padding">
+        <div class="container" style="margin-bottom:-10%">
             <div class="center-content">
                 <div class="row">
                     <div class="col-md-6 col-md-offset-3">
@@ -215,7 +135,6 @@
                 <div class="filter btn" data-filter="all">Tarih</div>
                 <div class="filter btn" data-filter="all">Kişisel Gelişim</div>
                 <div class="filter btn" data-filter="all">Korku-Gerilim</div>
-                <div class="filter btn" data-filter="all">Dini</div>
             </div>
         </div>
 
@@ -223,27 +142,28 @@
             <div class="container-fostrap">
                 <div class="content">
                     <div class="container">
-                        <div class="row">
-                            <div style="margin-top:-10%; margin-bottom:-10%">
+                        <div class="row-cols-12">
+                            <div style="margin-top: -16%">
                                 @for (int i = 0; i < 3; i++)
-                                {<div class="card col-md-4 h-100 bg-dark">
-                                        <a class="img-card" href="#">
-                                            <img src="@Model.Books[i].PhotoName" />
-                                        </a>
-                                        <div class="card-content " style="float:left">
-                                            <h4 class="card-title">
-                                                <a href="#">
-                                                    @Model.Books[i].BookName
-                                                </a>
-                                            </h4>
-                                            <p class="">
-                                                Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                                            </p>
+                                {<div class="card col-md-4 col-sm-6 col-xs-4 h-100" style="background-color: rgba(80, 48, 48, 0.59); color: antiquewhite; margin-top:18%; margin-bottom:-7%">
+                                        <p class="img-card">
+                                            <img style="object-fit:scale-down" src="@Model.Books[i].PhotoName" />
+                                        </p>
+                                        <div class="card-content" style="text-align:center; margin-top:5%">
+                                            <h1 class="card-title">
+                                                @Model.Books[i].BookName
+                                            </h1>
                                         </div>
-                                        <div class="card-read-more">
-                                            <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" class="btn btn-link btn-block">
-                                                Read More
-                                            </a>
+                                        <div class="card-content " style="float: left; margin-top: 9%; text-align: center;">
+                                            <h3>
+                                                @Model.Books[i].Author
+                                            </h3>
+
+                                        </div>
+                                        <div class="card-content " style="float: left; margin-top: 11%; text-align: center;">
+                                            <h4>
+                                                ISBN - @Model.Books[i].ISBN
+                                            </h4>
                                         </div>
                                     </div>
                                 }
@@ -267,7 +187,7 @@
             <div class="team-list">
                 <div class="team-member">
                     <figure>
-                        <img src="~/img/mamm.jpg" />
+                        <img src="~/img/mami2.jpeg" />
                     </figure>
                     <div class="content-block">
                         <div class="member-info">
@@ -468,9 +388,7 @@
             © 2022 Copyright:
             <a class="text-white" href="#">Muhammed Koç</a>
         </div>
-        <!-- Copyright -->
     </footer>
-
 </body>
 
 

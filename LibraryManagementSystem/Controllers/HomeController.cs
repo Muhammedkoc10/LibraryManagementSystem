@@ -107,7 +107,7 @@ namespace LibraryManagementSystem.Controllers
                                         }
                                         else if(userGetpass.RoleEnum == ENTITIES.Enums.RoleEnum.User)
                                         {
-                                            return RedirectToAction("GetBook", "User", new { id = userGetpass.ID });
+                                            return RedirectToAction("Index", "User", new { id = userGetpass.ID });
                                         }
                                     }
                                     else
