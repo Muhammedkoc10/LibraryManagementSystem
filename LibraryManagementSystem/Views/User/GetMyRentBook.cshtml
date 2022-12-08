@@ -5,31 +5,40 @@
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
-<h1>GetMyRentBook</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Kira Başlangıç Tarihi
-            </th>
-            <th>
-                Kira Bitiş Tarihi
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    @foreach (var item in ViewBag.Bookss)
-    {
-        <tbody class="row">
-            <tr>
-                <td>
-                    @item.PhotoName
-                </td>
-            <tr />
-        </tbody>
-    }
-</table>
+<div class="card-group" style="margin-top:4%" >
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Fotoğraf</h3>
+            @foreach (var item in Model.RentBook)
+            {
+                <li class="list-group-item">
+                    <img style="width:180px;height:150px" src="@item.Book.PhotoName" />
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Kitap Adı</h3>
+            @foreach (var item in Model.RentBook)
+            {
+                <li class="list-group-item" style="height: 167px">
+                    @item.Book.BookName
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem; flo">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Kira Başlangıç ve Bitiş Tarihi</h3>
+            @foreach (var item in Model.RentBook)
+            {
+                <li class="list-group-item" style="height: 167px">
+                    @item.RentStartTime.ToShortDateString() - @item.RentEndTime.ToShortDateString()
+                </li>
+            }
+        </ul>
+    </div>
+</div>

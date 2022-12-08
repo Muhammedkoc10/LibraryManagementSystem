@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,17 +10,15 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.ENTITIES.Entities
 {
+    [ModelMetadataType(typeof(BookDataTypes))]
     public class Book : BaseClass
     {
-        [Required]
         [Display(Name = "Kitap Adı")]
         public string BookName { get; set; }
 
-        [Required]
         [Display(Name = "ISBN Numarası")]
         public string ISBN { get; set; }
 
-        [Required]
         [Display(Name = "Yazar")]
         public string Author { get; set; }
 

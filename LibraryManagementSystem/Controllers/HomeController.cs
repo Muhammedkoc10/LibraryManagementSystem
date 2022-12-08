@@ -42,8 +42,9 @@ namespace LibraryManagementSystem.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.ZeroSci = ViewBag.ZeroAct = ViewBag.ZeroHist = ViewBag.ZeroSelf= ViewBag.ZeroHor = 0;
             Random rnd = new Random();
-            ViewBag.Rnd = rnd.Next(1, 10);
+            ViewBag.Rnd = rnd.Next(1, 3);
             BooksCategory booksCategory = new BooksCategory();
             booksCategory.Category = _category.GetAll();
             booksCategory.Books = _book.GetAll();

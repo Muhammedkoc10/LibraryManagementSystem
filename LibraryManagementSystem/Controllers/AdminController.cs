@@ -39,7 +39,7 @@ namespace LibraryManagementSystem.UI.Controllers
             _context = context;
             _env = env;
         }
-     
+
 
         public IActionResult Index(int id)
         {
@@ -59,13 +59,18 @@ namespace LibraryManagementSystem.UI.Controllers
         [HttpPost]
         public IActionResult AddBook(CreateBook createBook)
         {
-            var book = createBook.Book;
-            if (book.Photo == null)
-                book.PhotoName = "\\img\\3586f868_94a2_4fd2_8933_17cd1ff7605e.jpeg";
+            if (ModelState.IsValid)
+            {
+                var book = createBook.Book;
+                if (book.Photo == null)
+                    book.PhotoName = "\\img\\c95b597e_8eb8_4d9a_a902_fa8b10b6073d.jpeg";
+                else
+                    book.PhotoName = SaveThePicture(book.Photo);
+                _book.Add(book);
+                return RedirectToAction("GetBook");
+            }
             else
-                book.PhotoName = SaveThePicture(book.Photo);
-            _book.Add(book);
-            return RedirectToAction("GetBook");
+                return View();
         }
 
         public IActionResult GetBook()
@@ -80,7 +85,7 @@ namespace LibraryManagementSystem.UI.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditBook(Book book,int id)
+        public IActionResult EditBook(Book book, int id)
         {
             Book updatedBook = _book.GetByID(id);
             updatedBook.BookName = book.BookName;
@@ -124,7 +129,7 @@ namespace LibraryManagementSystem.UI.Controllers
 
                 var fromAddress = new MailAddress("i_am_hr@outlook.com");
                 var toAddress = new MailAddress(user.Mail);
-                var Link = "Şifrenizi Oluşturmak İçin Linke Tıklayınız<a href= http://imhere.azurewebsites.net/Home/ResetPass/" + user.Mail + ">Buraya Tıklayınız</a>.";
+                var Link = "Şifrenizi Oluşturmak İçin Linke Tıklayınız<a href= https://localhost:44320//Home/ResetPass/" + user.Mail + ">Buraya Tıklayınız</a>.";
 
                 string resetPass = "Şifre Oluşturma Bağlantınız";
                 using (var smtp = new SmtpClient
@@ -191,11 +196,11 @@ namespace LibraryManagementSystem.UI.Controllers
         {
             CreateRentAll createRentAll = new CreateRentAll();
             createRentAll.Books = _book.GetAll();
-            createRentAll.RentBooks = _rentbook.GetAll();
             createRentAll.Users = _user.GetAll();
+            createRentAll.RentBooks = _rentbook.GetAll();
             return View(createRentAll);
         }
-       
+
         private string SaveThePicture(IFormFile img)
         {
             string filePath = Path.Combine(_env.WebRootPath, "img"); // ~/img

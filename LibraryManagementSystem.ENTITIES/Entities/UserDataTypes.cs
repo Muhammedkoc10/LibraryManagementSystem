@@ -33,9 +33,10 @@ namespace LibraryManagementSystem.ENTITIES.Entities
 
         [DataType(DataType.PhoneNumber)]
         [Required(ErrorMessage = "Lütfen Telefon Numaranızı Giriniz")]
+        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Telefon Numaranız doğru formatta değildir")]
         public string PersonelPhoneNumber { get; set; }
 
-
+        [Required(ErrorMessage = "Geçici şifre boş bırakılamaz")]
         [StringLength(50, MinimumLength = 8, ErrorMessage = "Şifreniz en az 8 karakterden oluşmalıdır")]
         [DataType(DataType.Password)]
         public string Password { get; set; }

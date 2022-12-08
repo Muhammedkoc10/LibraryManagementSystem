@@ -74,10 +74,9 @@ namespace LibraryManagementSystem.UI.Controllers
 
         public IActionResult GetMyRentBook(int id)
         {
-            ViewBag.Bookss = _context.RentBooks.Where(x => x.UserID == id).Select(x=>x.Book).ToList();
-            ViewBag.Rent = _context.RentBooks.Where(x => x.UserID == id).ToList();
             CreateRents createRents = new CreateRents();
             createRents.RentBook = _context.RentBooks.Where(x => x.UserID == id).ToList();
+            createRents.Books = _context.RentBooks.Where(x => x.UserID == id).Select(x=>x.Book).ToList();
             return View(createRents);
         }
     }

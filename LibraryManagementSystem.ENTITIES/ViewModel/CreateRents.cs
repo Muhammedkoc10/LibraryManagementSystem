@@ -10,7 +10,6 @@ namespace LibraryManagementSystem.ENTITIES.ViewModel
     public class CreateRents
     {
         public List<RentBook> RentBook { get; set; }
-        //public Book Books { get; set; }
-        public User User { get; set; }
+        public List<Book> Books { get; set; }
     }
 }

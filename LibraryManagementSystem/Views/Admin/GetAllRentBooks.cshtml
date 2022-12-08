@@ -5,45 +5,52 @@
     Layout = "~/Views/Shared/_LayoutManager.cshtml";
 }
 
-<h1>GetAllRentBooks</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.Books)
-        {
-            <tr>
-                <td>
-                    @item.PhotoName
-                </td>
-            </tr>
-        }
+<div class="card-group" style="margin-top:4%">
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Fotoğraf</h3>
+            @foreach (var item in Model.RentBooks)
+            {
+                <li class="list-group-item">
+                    <img style="width:180px;height:150px" src="@item.Book.PhotoName"/>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Kitap Adı</h3>
+            @foreach (var item in Model.RentBooks)
+            {
+                <li class="list-group-item" style="height: 167px">
+                    @item.Book.BookName
+                </li>
+            }
+        </ul>
+    </div>
 
-        @foreach (var item2 in Model.Users)
-        {
-            <tr>
-                <td>
-                    @item2.FirstName
-                </td>
-            </tr>
-        }
-        @foreach (var item3 in Model.RentBooks)
-        {
-    <tr>
-        <td>
-            @item3.RentStartTime
-        </td>
-        <td>
-            @item3.RentEndTime
-        </td>
-    </tr>
-        }
-    </tbody>
-</table>
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Kiralayan ID ve Adı</h3>
+            @foreach (var item in Model.RentBooks)
+            {
+                <li class="list-group-item" style="height: 167px">
+                    @item.User.ID - @item.User.FirstName @item.User.LastName
+                </li>
+            }
+        </ul>
+    </div>
+
+    <div class="card" style="width: 18rem; flo">
+        <ul class="list-group list-group-flush text-center">
+            <h3>Kira Başlangıç ve Bitiş Tarihi</h3>
+            @foreach (var item in Model.RentBooks)
+            {
+        <li class="list-group-item" style="height: 167px">
+            @item.RentStartTime.ToShortDateString() - @item.RentEndTime.ToShortDateString()
+        </li>
+            }
+        </ul>
+    </div>
+</div>
