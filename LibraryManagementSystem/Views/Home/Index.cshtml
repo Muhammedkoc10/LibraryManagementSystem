@@ -87,7 +87,7 @@
         <div class="container">
             <div class="filter-box">
                 <h3>Kütüphanede hangi kitabı arıyorsunuz? <hr /> Which book are you looking for in the library? </h3>
-                <form action="http://libraria.demo.presstigers.com/index.html" method="get">
+                <form asp-action="UsersSearch" asp-controller="Home" method="get">
                     <div class="col-md-4 col-sm-6">
                         <div class="form-group">
                             <label class="sr-only" for="keywords">İsme Göre Ara</label>
@@ -96,11 +96,11 @@
                     </div>
                     <div class="col-md-4 col-sm-6">
                         <div class="form-group">
-                            <select name="category" id="category" class="form-control">
+                            <select name="katID"  class="form-control">
 
                                 @foreach (var item in Model.Category)
                                 {
-                                    <option>
+                                    <option value="@item.ID">
                                         @item.CategoryName
                                     </option>
                                 }
@@ -108,8 +108,8 @@
                         </div>
                     </div>
                     <div class="col-md-4 col-sm-6">
-                        <div class="form-group">
-                            <input class="form-control" type="submit" value="Ara / Search">
+                        <div>
+                            <input type="submit" value="Create" class="btn btn-primary" />
                         </div>
                     </div>
                 </form>

@@ -13,6 +13,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 namespace LibraryManagementSystem.UI.Controllers
 {
@@ -105,13 +107,52 @@ namespace LibraryManagementSystem.UI.Controllers
         [HttpPost]
         public IActionResult CreateUser(User user)
         {
-            user.RoleEnum = ENTITIES.Enums.RoleEnum.User;
-            if (user.Photo == null)
-                user.PhotoName = "\\img\\3586f868_94a2_4fd2_8933_17cd1ff7605e.jpeg";
-            else
-                user.PhotoName = SaveThePicture(user.Photo);
-            _user.Add(user);
-            return RedirectToAction("GetUser");
+            var tryMail = _context.Users.Where(x => x.Mail == user.Mail).Select(y => y.Mail).FirstOrDefault();
+            if (tryMail != null)
+            {
+                ViewBag.AllReadyAdded = "Mail adresi Sistemde Kayıtlı";
+                return View();
+            }
+            if (ModelState.IsValid)
+            {
+                user.RoleEnum = ENTITIES.Enums.RoleEnum.User;
+                if (user.Photo == null)
+                    user.PhotoName = "\\img\\3586f868_94a2_4fd2_8933_17cd1ff7605e.jpeg";
+                else
+                    user.PhotoName = SaveThePicture(user.Photo);
+                _user.Add(user);
+
+                var fromAddress = new MailAddress("i_am_hr@outlook.com");
+                var toAddress = new MailAddress(user.Mail);
+                var Link = "Şifrenizi Oluşturmak İçin Linke Tıklayınız<a href= http://imhere.azurewebsites.net/Home/ResetPass/" + user.Mail + ">Buraya Tıklayınız</a>.";
+
+                string resetPass = "Şifre Oluşturma Bağlantınız";
+                using (var smtp = new SmtpClient
+                {
+                    Host = "smtp-mail.outlook.com",
+                    /**/
+                    Port = 587,
+                    EnableSsl = true,
+                    DeliveryMethod = SmtpDeliveryMethod.Network,
+                    UseDefaultCredentials = false,
+
+                    Credentials = new NetworkCredential(fromAddress.Address, "ik-123456")
+                })
+                    try
+                    {
+                        using (var message = new MailMessage(fromAddress, toAddress) { Subject = resetPass, Body = Link, IsBodyHtml = true })
+                        {
+                            smtp.Send(message);
+                        }
+                        ViewBag.SonucPozitif = "Mail Başarıyla Gönderildi.";
+                    }
+                    catch (Exception)
+                    {
+                        ViewBag.SonucNegatif = "Mail Gönderiminde Hata Oluştu.";
+                    }
+                return RedirectToAction("GetUser");
+            }
+            return View();
         }
 
         public IActionResult GetUser()

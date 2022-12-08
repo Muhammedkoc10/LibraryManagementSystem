@@ -10,15 +10,15 @@ using System.Threading.Tasks;
 
 namespace LibraryManagementSystem.ENTITIES.Entities
 {
+    [ModelMetadataType(typeof(UserDataTypes))]
     public class User : BaseClass
     {
         [Display(Name = "Ad")]
-        [Required(ErrorMessage = "Lütfen Adınızı Giriniz")]
         public string FirstName { get; set; }
 
         [Display(Name = "Soyad")]
-        [Required(ErrorMessage = "Lütfen Soyadınızı Giriniz")]
         public string LastName { get; set; }
+        
         [Display(Name = "Fotoğraf")]
         public string PhotoName { get; set; }
 
@@ -26,7 +26,6 @@ namespace LibraryManagementSystem.ENTITIES.Entities
         public IFormFile Photo { get; set; }
 
         [Display(Name = "Adres")]
-        [Required(ErrorMessage = "Lütfen Adresinizi Giriniz")]
         public string Address { get; set; }
 
         [Display(Name = "Mail")]
@@ -38,7 +37,7 @@ namespace LibraryManagementSystem.ENTITIES.Entities
         [Display(Name = "Telefon")]
         public string PersonelPhoneNumber { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Lütfen Cinsiyetinizi Seçiniz")]
         [Display(Name = "Cinsiyet")]
         public GenderEnum Gender { get; set; }
         

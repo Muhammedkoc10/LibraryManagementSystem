@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
+                <textarea asp-for="Address" class="form-control"></textarea>
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -41,15 +41,26 @@
             </div>
             <div class="form-group">
                 <label asp-for="PersonelPhoneNumber" class="control-label"></label>
-                <input asp-for="PersonelPhoneNumber" class="form-control" />
-                <span asp-validation-for="PersonelPhoneNumber" class="text-danger"></span>
+                <input asp-for="PersonelPhoneNumber" type="text" maxlength="14" class="phone form-control" placeholder="(555) 555-5555" />
             </div>
             <div class="form-group">
                 <label asp-for="Gender" class="control-label">Cinsiyet Seçiniz</label>
                 <select asp-for="Gender" asp-items="@Html.GetEnumSelectList<GenderEnum>()" class="form-control"> </select>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+            <div class="form-group my-5" style="margin: auto; width: 25%;">
+
+                @if (ViewBag.AllReadyAdded != null)
+                {
+                    <span style="font-size:large;" class="text-danger">@ViewBag.AllReadyAdded</span>
+                }
+                @if (ViewBag.SonucNegatif != null)
+                {
+                    <span class="text-danger">@ViewBag.SonucNegatif</span>
+                }
+                <br />
+                <div class="form-group">
+                    <input type="submit" value="Ekle" class="btn btn-primary" />
+                </div>
             </div>
         </form>
     </div>

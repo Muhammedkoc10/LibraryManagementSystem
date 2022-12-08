@@ -1,0 +1,48 @@
+﻿
+@model List<LibraryManagementSystem.ENTITIES.Entities.Book>
+
+@{
+    ViewData["Title"] = "UsersSearch";
+    Layout = "_LayoutHome";
+}
+
+<div class="col-md-9" style="margin-left:12%">
+    <table class="table col-md-1">
+        <thead>
+            <tr>
+                <th>
+                    Fotoğraf
+                </th>
+                <th>
+                    Kitap Adı
+                </th>
+                <th>
+                    ISBN No
+                </th>
+                <th>
+                    Yazar
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <img style="width:150px;height:150px" src="@item.PhotoName" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ISBN)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Author)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

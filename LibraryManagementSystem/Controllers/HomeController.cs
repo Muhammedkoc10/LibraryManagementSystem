@@ -49,7 +49,27 @@ namespace LibraryManagementSystem.Controllers
             booksCategory.Books = _book.GetAll();
             return View(booksCategory);
         }
-       
+        List<Book> books;
+        //[HttpPost]
+        //public IActionResult Index()
+        //{
+        //    //var books = booksCategory.Books;
+        //    //int y = _context.Categories.Where(x => x.ID == id).FirstOrDefault().ID;
+        //    //int catID = category.ID;
+            
+            
+        //}
+
+        public IActionResult UsersSearch(string keywords, /*Category category*/ int katID)
+        {
+            if(keywords!=null)
+                books = _context.Books.Where(x => x.CategoryID == katID && x.BookName.Contains(keywords)).ToList();
+            else
+                books = _context.Books.Where(x => x.CategoryID == katID ).ToList();
+            //return RedirectToAction("UsersSearch", books);
+            return View(books);
+        }
+
         public IActionResult Login()
         {
             return View();
