@@ -44,7 +44,7 @@ namespace LibraryManagementSystem.Controllers
         {
             ViewBag.ZeroSci = ViewBag.ZeroAct = ViewBag.ZeroHist = ViewBag.ZeroSelf= ViewBag.ZeroHor = 0;
             Random rnd = new Random();
-            ViewBag.Rnd = rnd.Next(1, 3);
+            ViewBag.Rnd = rnd.Next(1, 5);
             BooksCategory booksCategory = new BooksCategory();
             booksCategory.Category = _category.GetAll();
             booksCategory.Books = _book.GetAll();
